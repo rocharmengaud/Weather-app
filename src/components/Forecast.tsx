@@ -50,6 +50,10 @@ export const Forecast = ({ data }: Props): JSX.Element => {
             </div>
           ))}
         </section>
+        <section className="text-zinc-700 flex justify-between">
+          <div className="w-[140px] text-xs font-bold flex flex-col items-center bg-white/20 backdrop-blur-lg rounded drop-shadow-lg py-4 mb-5"></div>
+          <div className="w-[140px] text-xs font-bold flex flex-col items-center bg-white/20 backdrop-blur-lg rounded drop-shadow-lg py-4 mb-5"></div>
+        </section>
       </div>
     </div>
   );
