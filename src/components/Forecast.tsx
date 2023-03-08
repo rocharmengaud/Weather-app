@@ -1,6 +1,7 @@
 import Sunrise from '@/assets/Sunrise';
 import Sunset from '@/assets/Sunset';
 import { forecastType } from '@/types';
+import Image from 'next/image';
 
 type Props = {
   data: forecastType;
@@ -45,7 +46,12 @@ export const Forecast = ({ data }: Props): JSX.Element => {
               {/* Way to convert data from item.dt */}
               <p className="text-sm">{index === 0 ? 'Now' : new Date(item.dt * 1000).getHours()}</p>
               {/* Using icons from the API itself */}
-              <img src={`https://openweathermap.org/img/wn/${item.weather[0].icon}@2x.png`} alt={`weather-icon-${item.weather[0].description}`} />
+              <Image
+                src={`https://openweathermap.org/img/wn/${item.weather[0].icon}@2x.png`}
+                alt={`weather-icon-${item.weather[0].description}`}
+                width={100}
+                height={100}
+              />
               <p className="text-sm font-bold">
                 <Degree temp={Math.round(item.main.temp)} />
               </p>
