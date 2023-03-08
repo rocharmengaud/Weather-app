@@ -1,3 +1,5 @@
+import Sunrise from '@/assets/Sunrise';
+import Sunset from '@/assets/Sunset';
 import { forecastType } from '@/types';
 
 type Props = {
@@ -51,8 +53,12 @@ export const Forecast = ({ data }: Props): JSX.Element => {
           ))}
         </section>
         <section className="text-zinc-700 flex justify-between">
-          <div className="w-[140px] text-xs font-bold flex flex-col items-center bg-white/20 backdrop-blur-lg rounded drop-shadow-lg py-4 mb-5"></div>
-          <div className="w-[140px] text-xs font-bold flex flex-col items-center bg-white/20 backdrop-blur-lg rounded drop-shadow-lg py-4 mb-5"></div>
+          <div className="w-[140px] text-xs font-bold flex flex-col items-center bg-white/20 backdrop-blur-lg rounded drop-shadow-lg py-4 mb-5">
+            <Sunrise />
+          </div>
+          <div className="w-[140px] text-xs font-bold flex flex-col items-center bg-white/20 backdrop-blur-lg rounded drop-shadow-lg py-4 mb-5">
+            <Sunset />
+          </div>
         </section>
       </div>
     </div>
