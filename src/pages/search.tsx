@@ -34,7 +34,7 @@ export const Search = ({ term, options, onInputChange, onOptionSelect, onSubmit 
                     className="hover:bg-zinc-700 hover:text-white w-full px-2 py-1 text-sm text-left cursor-pointer"
                     onClick={() => onOptionSelect(option)}
                   >
-                    {option.name}
+                    {option.name}, {option.country}
                   </button>
                 </li>
               ))}

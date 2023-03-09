@@ -1,7 +1,9 @@
 import Sunrise from '@/assets/Sunrise';
 import Sunset from '@/assets/Sunset';
+import { getHumidityValue, getPop, getSunTime, getVisibilityValue, getWindDirection } from '@/helpers';
 import { forecastType } from '@/types';
 import Image from 'next/image';
+import { Tile } from './Tile';
 
 type Props = {
   data: forecastType;
@@ -58,13 +60,50 @@ export const Forecast = ({ data }: Props): JSX.Element => {
             </div>
           ))}
         </section>
-        <section className="text-zinc-700 flex justify-between">
+        <section className="text-zinc-700 flex flex-wrap justify-between">
           <div className="w-[140px] text-xs font-bold flex flex-col items-center bg-white/20 backdrop-blur-lg rounded drop-shadow-lg py-4 mb-5">
-            <Sunrise /> <span></span>
+            <Sunrise /> <span className="mt-2">{getSunTime(data.sunrise)}</span>
           </div>
           <div className="w-[140px] text-xs font-bold flex flex-col items-center bg-white/20 backdrop-blur-lg rounded drop-shadow-lg py-4 mb-5">
-            <Sunset />
+            <Sunset /> <span className="mt-2">{getSunTime(data.sunset)}</span>
           </div>
+          {/* WIND */}
+          <Tile
+            icon="wind"
+            title="wind"
+            info={`${Math.round(today.wind.speed)} km/h`}
+            description={`${getWindDirection(Math.round(today.wind.deg))}, gusts ${today.wind.gust.toFixed(1)} km/h`}
+          />
+          {/* FEELS LIKE */}
+          <Tile
+            icon="feels"
+            title="Feels like"
+            info={<Degree temp={Math.round(today.main.feels_like)} />}
+            description={`Feels ${Math.round(today.main.feels_like) < Math.round(today.main.temp) ? 'colder' : 'warmer'}`}
+          />
+          {/* HUMIDITY */}
+          <Tile icon="humidity" title="Humidity" info={`${today.main.humidity}%`} description={getHumidityValue(today.main.humidity)} />
+          {/* POP */}
+          <Tile
+            icon="pop"
+            title="Precipitation"
+            info={`${Math.round(today.pop)}%`}
+            description={`${getPop(today.pop)}, clouds at ${today.clouds.all}%`}
+          />
+          {/* PRESSURE */}
+          <Tile
+            icon="pressure"
+            title="Pressure"
+            info={`${today.main.pressure} hPa`}
+            description={`${Math.round(today.main.pressure) < 1013 ? 'Lower' : 'Higher'} than standard`}
+          />
+          {/* VISIBILITY */}
+          <Tile
+            icon="visibility"
+            title="Visibility"
+            info={`${(today.visibility / 1000).toFixed()} km`}
+            description={getVisibilityValue(today.visibility)}
+          />
         </section>
       </div>
     </div>

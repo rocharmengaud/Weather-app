@@ -1,5 +1,6 @@
 import { useState, useEffect, ChangeEvent } from 'react';
 import { optionType } from '@/types';
+import { copyFileSync } from 'fs';
 
 export const useForecast = () => {
   const [term, setTerm] = useState<string>('');
@@ -11,7 +12,8 @@ export const useForecast = () => {
     // See next.config.js for the process.env
     fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${value.trim()}&limit=5&appid=${process.env.NEXT_APP_API_KEY}`)
       .then((res) => res.json())
-      .then((data) => setOptions(data));
+      .then((data) => setOptions(data))
+      .catch((e) => console.log(e));
   };
 
   const onInputChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -31,7 +33,8 @@ export const useForecast = () => {
           list: data.list.slice(0, 16),
         };
         setForecast(forecastData);
-      });
+      })
+      .catch((e) => console.log(e));
   };
 
   const onSubmit = () => {
