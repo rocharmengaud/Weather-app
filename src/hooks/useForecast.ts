@@ -1,6 +1,6 @@
 import { useState, useEffect, ChangeEvent } from 'react';
 import { optionType } from '@/types';
-import { copyFileSync } from 'fs';
+import { forecastType } from '@/types';
 
 export const useForecast = () => {
   const [term, setTerm] = useState<string>('');
