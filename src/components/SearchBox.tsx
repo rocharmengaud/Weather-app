@@ -17,7 +17,7 @@ export const SearchBox = ({ term, options, onInputChange, onOptionSelect, onSubm
         type="text"
         value={term}
         className="rounded-l-md px-2 py-1 bg-white border-2 border-white"
-        placeholder="City"
+        placeholder="Type a city"
         onChange={onInputChange}
       ></input>
       <ul className="top-9 rounded-b-md absolute ml-1 bg-white">
