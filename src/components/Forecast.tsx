@@ -25,9 +25,9 @@ export const Forecast = ({ data }: Props): JSX.Element => {
     <div className="w-full md:max-w-[500px] py-4 md:py-4 md:px-10 lg:px-24 h-full lg:h-auto bg-white bg-opacity-20 backdrop-blur-lg rounded drop-shadow-lg">
       <div className="mx-auto w-[300px]">
         <section className="text-center">
-          <h2 className="text-2xl font-black">
+          <h2 className="text-zinc-700 text-2xl font-black">
             {data.name}
-            <span className="font-thin"> {data.country}</span>
+            <span className="font-thin text-white"> {data.country}</span>
           </h2>
           <h1 className="text-4xl font-extrabold">
             {/* Rounding the value with Math.round */}
@@ -51,8 +51,8 @@ export const Forecast = ({ data }: Props): JSX.Element => {
               <Image
                 src={`https://openweathermap.org/img/wn/${item.weather[0].icon}@2x.png`}
                 alt={`weather-icon-${item.weather[0].description}`}
-                width={100}
-                height={100}
+                width={50}
+                height={50}
               />
               <p className="text-sm font-bold">
                 <Degree temp={Math.round(item.main.temp)} />
