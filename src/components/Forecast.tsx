@@ -108,10 +108,10 @@ export const Forecast = ({ data, clearForecast }: Props): JSX.Element => {
         </section>
         <div className="flex justify-center">
           <button
-            className="border-zinc-100 hover:border-blue-300 hover:text-blue-300 text-zinc-100 px-2 py-1 text-center border-2 rounded-md cursor-pointer"
+            className="border-zinc-100 hover:bg-blue-600 text-zinc-100 px-2 py-1 text-center bg-blue-400 border-2 rounded-md cursor-pointer"
             onClick={clearForecast}
           >
-            Search another city
+            Home
           </button>
         </div>
       </div>

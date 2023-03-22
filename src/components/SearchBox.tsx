@@ -34,7 +34,7 @@ export const SearchBox = ({ term, options, onInputChange, onOptionSelect, onSubm
         ))}
       </ul>
       <button
-        className="rounded-r-md border-zinc-100 hover:border-zinc-500 hover:text-zinc-500 text-zinc-100 px-2 py-1 border-2 cursor-pointer"
+        className="rounded-r-md border-zinc-100 hover:bg-blue-600 hover:text-blue-300 text-zinc-100 px-2 py-1 bg-blue-400 border-2 cursor-pointer"
         onClick={onSubmit}
       >
         Search
