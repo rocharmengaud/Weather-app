@@ -42,10 +42,15 @@ export const useForecast = () => {
   const onSubmit = () => {
     if (!city) return;
     getForecast(city);
+    setTerm('');
   };
 
   const onOptionSelect = (option: optionType) => {
     setCity(option);
+  };
+
+  const clearForecast = () => {
+    setForecast(null);
   };
 
   useEffect(() => {
@@ -62,5 +67,6 @@ export const useForecast = () => {
     onInputChange,
     onOptionSelect,
     onSubmit,
+    clearForecast,
   };
 };

@@ -7,6 +7,7 @@ import { Tile } from './Tile';
 
 type Props = {
   data: forecastType;
+  clearForecast: () => void;
 };
 // Little component
 const Degree = ({ temp }: { temp: number }): JSX.Element => {
@@ -18,7 +19,7 @@ const Degree = ({ temp }: { temp: number }): JSX.Element => {
     </span>
   );
 };
-export const Forecast = ({ data }: Props): JSX.Element => {
+export const Forecast = ({ data, clearForecast }: Props): JSX.Element => {
   const today = data.list[0];
 
   return (
@@ -105,6 +106,14 @@ export const Forecast = ({ data }: Props): JSX.Element => {
             description={getVisibilityValue(today.visibility)}
           />
         </section>
+        <div className="flex justify-center">
+          <button
+            className="border-zinc-100 hover:border-blue-300 hover:text-blue-300 text-zinc-100 px-2 py-1 text-center border-2 rounded-md cursor-pointer"
+            onClick={clearForecast}
+          >
+            Search another city
+          </button>
+        </div>
       </div>
     </div>
   );
