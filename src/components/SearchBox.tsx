@@ -1,6 +1,5 @@
 import { optionType } from '@/types';
-import { ChangeEvent, useState } from 'react';
-import { useForecast } from '@/hooks/useForecast';
+import { ChangeEvent } from 'react';
 
 type Props = {
   term: string;
@@ -23,7 +22,7 @@ export const SearchBox = ({ term, options, onInputChange, onOptionSelect, onSubm
       ></input>
       <ul className="top-9 rounded-b-md absolute ml-1 bg-white">
         {/* Here, optionType refers to src/types/index.ts */}
-        {options.map((option: optionType, index: number) => (
+        {options?.map((option: optionType, index: number) => (
           <li key={option.name + '-' + index}>
             <button
               className="hover:bg-zinc-700 hover:text-white w-full px-2 py-1 text-sm text-left cursor-pointer"
