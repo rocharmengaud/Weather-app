@@ -1,6 +1,6 @@
 import { Forecast } from '@/components/Forecast';
 import { useForecast } from '@/hooks/useForecast';
-import { Search } from './search';
+import Search from './search';
 
 export default function Home(): JSX.Element {
   // This const is using my custom hook
