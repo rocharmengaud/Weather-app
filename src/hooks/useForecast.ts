@@ -11,7 +11,7 @@ export const useForecast = () => {
   // Refreshing whenever the user types into the input for cities
   const getSearchOptions = (value: string) => {
     // See next.config.js for the process.env
-    fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${value.trim()}&limit=5&appid=${process.env.NEXT_APP_API_KEY}`)
+    fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${value.trim()}&limit=5&appid=${process.env.NEXT_APP_API_KEY}`)
       .then((res) => res.json())
       .then((data) => setOptions(data))
       .catch((e) => console.log(e));
