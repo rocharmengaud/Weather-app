@@ -10,7 +10,7 @@ type Props = {
   onSubmit: () => void;
 };
 
-const Search = ({ term, options, onInputChange, onOptionSelect, onSubmit }: Props): JSX.Element => {
+export default function Search({ term, options, onInputChange, onOptionSelect, onSubmit }: Props): JSX.Element {
   return (
     <>
       <main className="flex justify-center items-center bg-gradient-to-br from-sky-400 h-[100vh] w-full">
@@ -24,6 +24,4 @@ const Search = ({ term, options, onInputChange, onOptionSelect, onSubmit }: Prop
       </main>
     </>
   );
-};
-
-export default Search;
+}
