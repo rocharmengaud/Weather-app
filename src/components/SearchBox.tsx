@@ -1,5 +1,5 @@
 import { optionType } from '@/types';
-import { ChangeEvent } from 'react';
+import { ChangeEvent, useState } from 'react';
 import { useForecast } from '@/hooks/useForecast';
 
 type Props = {
@@ -19,6 +19,7 @@ export const SearchBox = ({ term, options, onInputChange, onOptionSelect, onSubm
         className="rounded-l-md px-2 py-1 bg-white border-2 border-white"
         placeholder="Type a city"
         onChange={onInputChange}
+        // onBlur={setIsOpen(false)}
       ></input>
       <ul className="top-9 rounded-b-md absolute ml-1 bg-white">
         {/* Here, optionType refers to src/types/index.ts */}
